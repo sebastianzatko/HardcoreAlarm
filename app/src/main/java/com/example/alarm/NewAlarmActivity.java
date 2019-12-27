@@ -26,25 +26,12 @@ public class NewAlarmActivity extends AppCompatActivity {
             }
         });
 
-        final DatePickerDialog.OnDateSetListener datePickerListener= new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                SimpleDateFormat simpleDateFormat=new SimpleDateFormat("EEE");
-                Date date=new Date(year,month,dayOfMonth-1);
-                String dayOfWeek=simpleDateFormat.format(date);
-            }
-        };
 
         Button buttonSelectRepeatDays=findViewById(R.id.btn_selectRepeatDays);
         buttonSelectRepeatDays.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calendar calendar=Calendar.getInstance();
-                int year=calendar.get(Calendar.YEAR);
-                int month=calendar.get(Calendar.MONTH);
-                int day=calendar.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog datePickerDialog=new DatePickerDialog(v.getContext(),datePickerListener,year,month,day);
-                datePickerDialog.show();
+                
             }
         });
 
