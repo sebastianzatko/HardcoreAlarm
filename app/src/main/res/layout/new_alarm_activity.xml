@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!--<android.support.design.widget.BottomNavigationView
+        app:menu="@menu/menu_new_alarm"/>-->
+
+    <LinearLayout
+        android:id="@+id/box_dateConfig"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/box_tuneConfig"
+        android:layout_marginBottom="165dp"
+        android:background="@color/cardview_light_background"
+        android:orientation="horizontal">
+
+        <TimePicker
+            android:id="@+id/inputTimePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:timePickerMode="spinner" />
+
+        <LinearLayout
+            android:id="@+id/box_selectRepeatDays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ToggleButton
+                android:id="@+id/btn_dayMonday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textOn="M"
+                android:textOff="M"
+                android:background="@drawable/as_rounded_button"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/box_tuneConfig"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/box_nameBox"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="82dp"
+        android:background="@color/cardview_light_background"
+        android:orientation="horizontal"
+        app:layout_anchor="@+id/box_dateConfig"
+        app:layout_anchorGravity="bottom|center">
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_selectTone"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            app:backgroundTint="#00FCF9F9"
+            app:srcCompat="@drawable/ic_music_note_black_24dp" />
+
+        <SeekBar
+            android:id="@+id/sek_tuneVolume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="70" />
+
+        <ToggleButton
+            android:id="@+id/btn_togleVibration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="Vibrate off"
+            android:textOn="Vibrate on" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/box_nameBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/box_finishOperation"
+        android:layout_marginBottom="61dp"
+        android:background="@color/cardview_light_background"
+        android:orientation="horizontal"
+        app:layout_anchor="@+id/box_dateConfig"
+        app:layout_anchorGravity="bottom|center">
+
+        <TextView
+            android:id="@+id/lbl_alarmName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alarm Name:" />
+
+        <EditText
+            android:id="@+id/txt_alarmName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/box_finishOperation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        app:layout_anchor="@+id/box_nameBox"
+        app:layout_anchorGravity="bottom|center">
+
+        <Button
+            android:id="@+id/btn_cancelAlarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel" />
+
+        <Button
+            android:id="@+id/btn_confirmAlarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Accept"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

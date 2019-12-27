@@ -1,22 +1,22 @@
 package com.example.alarm;
 
-import android.app.DatePickerDialog;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
+import android.widget.CompoundButton;
+import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import androidx.core.content.ContextCompat;
 
 public class NewAlarmActivity extends AppCompatActivity {
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_new_alarm_dialog);
+        setContentView(R.layout.new_alarm_activity);
 
         Button buttonCancelNewAlarm=findViewById(R.id.btn_cancelAlarm);
         buttonCancelNewAlarm.setOnClickListener(new View.OnClickListener() {
@@ -27,15 +27,38 @@ public class NewAlarmActivity extends AppCompatActivity {
         });
 
 
-        Button buttonSelectRepeatDays=findViewById(R.id.btn_selectRepeatDays);
-        buttonSelectRepeatDays.setOnClickListener(new View.OnClickListener() {
+        Button buttonCreateNewAlarm=findViewById(R.id.btn_confirmAlarm);
+        buttonCreateNewAlarm.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v) {
-                
+            public void onClick(View v){
+
             }
         });
 
+
+
+        ToggleButton.OnCheckedChangeListener onCheckedChangeListener= new ToggleButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    //buttonView.setBackground(getResources().getDrawable(R.drawable.as_rounded_button));
+                    buttonView.setBackgroundColor(getResources().getColor(R.color.colorOnBackground));
+                    buttonView.setTextColor(getResources().getColor(R.color.colorOnFont));
+                }else{
+
+                    buttonView.setBackgroundColor(getResources().getColor(R.color.colorOffBackground));
+                    buttonView.setTextColor(getResources().getColor(R.color.colorOffFont));
+                }
+            }
+        };
+
+        ToggleButton btn_Monday=findViewById(R.id.btn_dayMonday);
+        btn_Monday.setOnCheckedChangeListener(onCheckedChangeListener);
+
     }
+
+
+
     public void closeDialog(View view){
         finish();;
     }
